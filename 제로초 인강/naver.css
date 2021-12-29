@@ -162,6 +162,7 @@ nav ul{
     margin:0;
     padding:16px 0 0 4px;
     list-style: none;
+    
 }
 
 #nav-menu li {
@@ -295,6 +296,8 @@ nav ul{
     position: absolute;
     top: -15px;
     right: 0;
+    z-index: 100;
+
 
 }
 
