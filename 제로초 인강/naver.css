@@ -269,3 +269,9 @@ nav li:nth-child(16) span:first-child {
     letter-spacing: -1px;
     font-size: 14px;
 }
+
+main {
+    background-color: #f2f4f7;
+    display: inline-block;
+    width: 100%;
+}
