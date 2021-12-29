@@ -3,7 +3,9 @@
 }
 
 html,body{
-    margin:0
+    margin:0;
+    padding:0;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
 }
 
 #fixed {
@@ -26,13 +28,22 @@ html,body{
     overflow: hidden;
 }
 
+.relative{
+    position: relative;
+}
+
 .center-align {
     margin:0 auto; 
     width: 1080px;
 }
 
+header {
+    height: 170px;
+}
+
 #header-top {
     float: right;
+    margin-top: 8px;
 }
 
 #header-top span {
@@ -44,6 +55,7 @@ html,body{
 
 #header-search {
     clear: both;
+    padding-top: 12px;
 }
 
 #header-search a{
@@ -66,7 +78,7 @@ html,body{
 
 
 #header-search fieldset {
-    margin-left: 20px;
+    margin-left: 18px;
     padding: 12px 0px 12px 10px;
     width: 521px;
     height: 49;
@@ -104,12 +116,18 @@ html,body{
     width: 21px;
     height: 21px;
     display:inline-block;
-    margin: 14px;
+    margin: 14 px;
+}
+
+nav{
+    height: 46px;
+    border-top: 1px solid #f1f3f6; 
 }
 
 nav ul{
+    display: inline-block;
     margin:0;
-    padding:0;
+    padding:16px 0 0 4px;
     list-style: none;
 }
 
@@ -122,7 +140,7 @@ nav li span:first-child {
     display: inline-block;
     background-image: url(./sp_nav.png);
     background-repeat: no-repeat;
-    margin-left: 14px;
+    margin-left: 10px;
 }
 
 nav li:first-child span:first-child {
@@ -156,5 +174,26 @@ nav li:nth-child(6) span:first-child {
     background-position: -70px -285px;
 }
 
-
+.nav-divider {
+    display: inline-block;
+    margin: 18px 16px 0;
+    width: 1px;
+    height: 14px;
+    background: #ebeef3;
+}
    
+#search-ranking{
+    position :absolute;
+    top:16px;
+    right:100px;
+}
+
+#rank-number{
+    margin-top:-9px;
+    color :#00ab33;
+    font-size: 16px;
+}
+#rank-title{
+    letter-spacing: -1px;
+    font-size: 14px;
+}
