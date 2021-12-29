@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .blind{
     position: absolute;
     clip: rect(0 0 0 0);
@@ -21,6 +25,7 @@
     height: 48px;
     display:inline-block;
     background: url(./sp_search.png) -4px -4px no-repeat;
+    vertical-align: middle;
 }
 
 #header-search h1 span {
@@ -36,4 +41,11 @@
     height: 49;
     display:inline-block;
     border: 2px solid #03cf5d;
+    vertical-align: middle;
+}
+
+#header-search fieldset input{
+    border: none;
+    padding: 0;
+    outline: none;
 }
