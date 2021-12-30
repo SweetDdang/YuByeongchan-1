@@ -1,0 +1,34 @@
+
+
+#nav-right {
+    float: right;
+    
+    margin-top: 8px;
+}
+
+
+#nav-left{
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 1000px;
+}
+#nav-left span{
+    display: inline-block;
+    padding-left: 15px;
+}
+
+#main-about {
+    float: left;
+    transform: translate(10%, 40%);
+    color: black;
+    width: 800px;
+}
+
+#log-in {
+    float: right;
+    transform: translate(10%, 20%);
+    color: black;
+    width: 800px;
+}
