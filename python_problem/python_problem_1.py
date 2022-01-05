@@ -10,3 +10,9 @@ while True:
        
     except:
         print("정수를 입력하세요")
+
+num += a
+
+while num !=0:
+    print("playerA:"+str(num))
+    num -= 1
