@@ -16,7 +16,7 @@ while num<32:
         print("playerA:"+str(num))
 
         if num == 31:
-            
+            print("playerB win!")
             exit()
         
     while True:
@@ -35,6 +35,6 @@ while num<32:
         print("playerB:"+str(num))
 
         if num == 31:
-            
+            print("playerA win!")
             exit()
 
