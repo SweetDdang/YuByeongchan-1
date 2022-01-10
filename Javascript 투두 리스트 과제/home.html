@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+    <main id="main-container">
+        <h1>피로그래밍 과제 리스트</h1>
+        <hr>
+        <div class="add-text">
+            <input type="text" class="text-box" placeholder="과제를 입력하세요!"> 
+            <button type="button" id="add-btn">추가</button>
+        </div>
+        <table>
+            <tbody class="first-col">
+                <tr>
+                    <th><i class="far fa-check-square"></i></th>
+                    <th>오늘 할 과제</th>
+                </tr>
+            </tbody>
+            <tbody class="nth-col">
+                <tr>
+                    <td><input type="checkbox" class="check-btn"></td>
+                    <td class="td-text">안녕하세요</td> 
+                </tr>
+            </tbody>
+        </table>
+        <div class="delete-buttons">
+            <button type="button" id="delete-selected">선택과제 삭제</button>
+            <button type="button" id="delete-last">마지막 과제 삭제</button>
+            <button type="button" id="delete-all">전체 삭제</button>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
