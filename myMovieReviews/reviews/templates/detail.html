@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포스트 상세 정보</title>
+  </head>
+
+  <body>
+    <a href="{% url 'reviews:list'%}"><h4>my Movie reviews</h4></a>
+    <h1>{{ post.title }}</h1>
+    <span> 개봉년도 {{ post.created_date }}년</span>
+    <p>감독  {{ post.director }}</p>
+    <p>주연 {{ post.actor }}</p>
+    <p>장르 {{ post.genre }}</p>
+    <p>별점 {{ post.star }}</p>
+    <p>러닝타임 {{ post.running_time }} 분</p>
+    <p>{{ post.text | linebreaksbr }}</p>
+    
+    <a href="{% url 'reviews:update' post.id%}"><button>수정하기</button></a> <br />
+    
+    <a href="{% url 'reviews:delete' post.id%}"><button>삭제하기</button></a> <br />  
+    
+
+  </body>
+</html>
