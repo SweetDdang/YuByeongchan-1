@@ -124,19 +124,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-import os, json #json을 읽어오기 위해 json을 추가해 줍니다.
-from django.core.exceptions import ImproperlyConfigured #예외 처리를 위해 불러와줍니다.
+SECRET_KEY = 'django-insecure-uex41te7pf0$kj=a=f7i(m=21ca!y^s5l@zzc7b4+k6s7lzh62'
 
-secret_file = os.path.join(BASE_DIR, 'secrets.json') #secrets.json을 불러와 줍니다.
-
-with open(secret_file, 'r') as f: #open as로 secret.json을 열어줍니다.
-    secrets = json.loads(f.read())
-
-def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생을 검출합니다.
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_secret("SECRET_KEY")
