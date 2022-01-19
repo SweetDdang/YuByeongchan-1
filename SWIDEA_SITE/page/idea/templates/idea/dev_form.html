@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}IDEA register{% endblock %}
+{% block content %}
+
+    <h4>Create</h4>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">저장</button>
+
+    </form>
+
+
+{% endblock %}

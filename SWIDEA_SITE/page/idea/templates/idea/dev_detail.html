@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} DevTool_detail {% endblock %}
+
+{% block content %}
+
+
+<h1>{{ devs.name }}</h1></div>
+<h5>{{ devs.kind }}</h5>
+<h5>{{ devs.description }}</h5>
+
+<h4>만들 수 있는 SW 목록</h4>
+
+{% for idea in ideas %}
+    <a href="{% url 'idea:idea_detail' idea.pk %}" class="my-1">{{ idea.title }}</a>
+{% endfor %}
+
+
+
+<a href="{% url 'idea:dev_delete' devs.pk %}">삭제</a>
+<a href="{% url 'idea:dev_list' %}">목록</a>
+<a href="{% url 'idea:dev_update' devs.pk %}">수정</a>
+
+{% endblock %}

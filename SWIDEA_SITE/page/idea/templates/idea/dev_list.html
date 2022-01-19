@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}dev List{% endblock %}
+{% block content %}
+
+{% for dev in devs %}
+    <ul>
+    
+        <h2><a href="{% url 'idea:dev_detail' pk=dev.pk %}">{{dev.name}}</a></h2>
+        <hr>
+        <h5>{{ dev.kind }}</h5>
+        <h5>{{ dev.description }}</h5>
+        
+    </ul>
+
+{% endfor %}
+
+{% endblock %}

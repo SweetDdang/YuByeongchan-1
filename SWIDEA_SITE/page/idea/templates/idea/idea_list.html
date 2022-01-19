@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Idea List{% endblock %}
+{% block content %}
+
+{% for idea in ideas %}
+    <ul>
+        <img src="{{ideas.image.url}}" height="220" width="160">
+        <h2><a href="{% url 'idea:idea_detail' pk=idea.pk %}">{{idea.title}}</a></h2>
+        <h5>예상 개발 툴: <strong>{{ idea.devtool.name }}</stro></h5>
+        <h5>아이디어 관심도 : {{ idea.interest }}</h5>
+        <button type="button" id="plus_btn">+</button>
+        <button type="button" id="minus_btn">-</button>
+    </ul>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Idea_detail {% endblock %}
+
+{% block content %}
+
+<img src="{{ideas.image.url}}" height="300" width="400">
+<h1>{{ ideas.title }}</h1></div>
+<h4>1) 아이디어 관심도:  </h4>
+<h5>{{ ideas.interest }}</h5>
+<h4>2) 예상 개발 툴:  </h4>
+<a href="{% url 'idea:dev_detail' devs.pk %}">{{ devs.name }}</a>
+<h4>3) 아이디어 설명 </h4>
+<h5>{{ ideas.content }}</h5>
+
+<a href="{% url 'idea:idea_delete' ideas.pk %}">삭제</a>
+<a href="{% url 'idea:idea_list' %}">목록</a>
+<a href="{% url 'idea:idea_update' ideas.pk %}">수정</a>
+
+{% endblock %}
