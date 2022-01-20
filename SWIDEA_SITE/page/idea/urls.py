@@ -15,3 +15,4 @@ urlpatterns = [
     path('<int:pk>/dev_update/', view=views.dev_update, name='dev_update'),
     path('<int:pk>/dev_delete/', view=views.dev_delete, name='dev_delete'),
 ]
+

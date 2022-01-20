@@ -12,7 +12,7 @@ class Dev_tool(models.Model):
 
 class Idea(models.Model):
     title = models.CharField(verbose_name="아이디어명", max_length=50)
-    image = models.ImageField(verbose_name='대표사진', upload_to="", null=True)
+    image = models.ImageField(verbose_name='대표사진', upload_to="images", null=True, blank=True)
     content = models.TextField(verbose_name="아이디어 설명")
     interest = models.IntegerField(verbose_name="아이디어 관심도", default=0)
     devtool = models.ForeignKey(Dev_tool, on_delete=models.CASCADE)
