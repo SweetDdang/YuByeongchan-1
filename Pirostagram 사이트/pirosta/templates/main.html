@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -22,13 +19,12 @@
             </section>
 
             <h4> 좋아요 {{ post.like }}</h4>
-            <div class="btn btn-primary post__like" onclick="onClickLike({{ post.id }} , 'like')">Like {{ post.like }}</div>
-            <button onclick="onClickLike({{ post.id}}, 'like')">좋아요</button>
+            <div class="post__like" onclick="onClickLike({{ post.id }} , 'like')">Like {{ post.like }}</div>
             <h4>댓글목록</h4>
             <hr>
             <div>
                 <table id="comment-table-{{post.id}}">
-                    {% for comment in post.comment_set.all %}
+                    {% for comment in comments %}
                     <tr id = "comment-{{comment.id}}">
                         <td>{{comment.content}}</td>
                         <td>
@@ -41,16 +37,14 @@
         </div>            
     {% endfor %}
     
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
     
     <script>
         const requestComment = new XMLHttpRequest();
         const requestDel = new XMLHttpRequest();
         const requestLike = new XMLHttpRequest();
 
-        
+        // ------------------------------------------------------------댓글  
 
         const onClickComment = (id, type) => {
             const url = "add_comment/";
@@ -77,29 +71,16 @@
         const addComment = () => {
             if (requestComment.status < 400){
                 const {id, type, content, comment_id} = JSON.parse(requestComment.response)
-                //댓글 추가하기
-                // element(table, #comment-table-{post.id}) 
-                //  -> new_comment(tr, #comment-{comment.id})  
-                //      -> comment_content(td)
-                //      -> del-btn(button)
-
                 const element = document.querySelector(`#comment-table-${id}`)
                 const new_comment = document.createElement("tr")
                 const comment_content = document.createElement("td")        
-                const del_btn = document.createElement("button")
-                
-                //comment 내용 채우기
+                const del_btn = document.createElement("button")  
                 comment_content.append(content)
-                //tr attribute
                 comment_content.setAttribute("id", `comment-${comment_id}`)
-                //button attribute
                 del_btn.setAttribute("class", "del_btn")
                 del_btn.setAttribute("onclick","onClickComment({{comment.id}}, 'del')")
                 del_btn.innerHTML = "삭제"
-                //input 칸 리셋
                 document.getElementById(`comment_input-${id}`).value = ''
-                
-                //skeleton
                 element.append(new_comment)
                 new_comment.appendChild(comment_content)
                 new_comment.appendChild(del_btn)
@@ -109,7 +90,6 @@
         const delComment = () => {
             if (requestComment.status < 400){
                 const{id} = JSON.parse(requestDel.response)
-
                 const element = document.querySelector(`#comment-${id}`)
                 element.remove();
 
@@ -128,7 +108,11 @@
                 delComment();
             }
         }
-        
+
+
+        // ------------------------------------------------------------좋아요  
+
+
         const onClickLike =(id, type) => {
             const url ="like/";
             requestLike.open("POST",url,true);
@@ -150,7 +134,7 @@
                 element.innerHTML = `${buttonType} ${count}`;
             }
         };
-        
+
         requestLike.onreadystatechange = () => {
             if (requestLike.readyState === XMLHttpRequest.DONE) {
                 likeHandleResponse();

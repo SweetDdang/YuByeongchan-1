@@ -37,15 +37,12 @@ def like(request):
     return JsonResponse({'id': id, 'type': type})
 
 
-
-
 @csrf_exempt
 def add_comment(request):
     req = json.loads(request.body)
     id = req['id']
     type = req['type']
     content = req['content']
-    
     comment = Comment()
     comment.post = Post.objects.get(id = id)
     comment.content = content
@@ -57,7 +54,6 @@ def add_comment(request):
 def del_comment(request):
     req = json.loads(request.body)
     comment_id = req['id']
-    
     comment = get_object_or_404(Comment, id = comment_id)
     comment.delete()
     return JsonResponse({'id': comment_id})
